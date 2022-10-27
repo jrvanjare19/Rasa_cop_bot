@@ -1,0 +1,54 @@
+/*mainhedaer css*/
+.hov {
+  width: 185px;
+}
+.home_nav {
+  width: 125px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+  .lSAction > .lSPrev {
+    background-position: 0 0;
+    left: 0%;
+  }
+  .lSAction > .lSNext {
+    background: url(../img/arrowRight.svg);
+    width: 18px;
+    height: 14px;
+    margin: 15px -6px;
+    cursor: pointer;
+    top: 0;
+    background-position: 0 0 !important;
+    right: 70%;
+    z-index: 9;
+  }
+  .navbar-nav > li {
+    margin-right: -10px;
+    max-width: 250px;
+    width: 133px;
+  }
+  .home_nav {
+    width: 70px !important;
+  }
+  .hovesr {
+    width: 105px !important;
+  }
+  .hov {
+    width: 140px !important;
+  }
+}
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1365px) and (-webkit-min-device-pixel-ratio: 1) {
+  .navbar-nav > li {
+    margin-right: -10px;
+    max-width: 250px;
+    width: 145px !important;
+  }
+  .home_nav {
+    width: 115px !important;
+  }
+  .hovesr {
+    width: 132px !important;
+  }
+  .hov {
+    width: 165px !important;
+  }
+}

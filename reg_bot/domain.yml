@@ -1,0 +1,275 @@
+version: "2.0"
+
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge 
+
+
+entities:
+- name 
+- father_hub_name 
+- DOB 
+- Nationality 
+- Contact_no 
+- Occupation 
+- Address 
+- Incident_ad 
+- Incident_date 
+- Incident_time 
+- Do_u_know_accused 
+- name_accused 
+- address_accused  
+- Help 
+- Theft 
+- Mobile_info 
+
+
+slots:
+  name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+
+  father_hub_name:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+
+  DOB:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+
+  Nationality:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+
+  Contact_no:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+
+  Occupation:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true 
+
+  Religion:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true 
+
+  Address:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+
+  Incident_ad:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  
+  Incident_day:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+
+  Incident_date:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true 
+
+  Incident_time:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+
+  Info_received_PS_date:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+
+  Info_received_PS_Time:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+
+  Do_u_know_accused:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true 
+
+  name_accused:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true  
+
+  address_accused:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true 
+
+  Help:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true 
+
+  Theft:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true  
+
+  Mobile_info:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true 
+
+  
+  
+  
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_name:
+  - text: What should I address you as? 
+
+  utter_ask_address:
+  - text: Mention your residential address. 
+
+  utter_ask_Contact_:
+  - text: Mention your ten digit phone number.
+
+  utter_ask_father_name:
+  - text: Mention your Father/Husband name.
+
+  utter_ask_Occupation:
+  - text: What do you do/ your Occupation? 
+
+  utter_Help:
+  - text: How can I help you
+    buttons:
+    - paylod: Emergency
+      title: Emergency
+    - payload: E-FIR
+      title: E-FIR
+    
+
+  utter_Theft:
+  - buttons:
+    - paylod: Mobile
+      title: Mobile
+    - payload: Car
+      title: Car
+    - payload: jewelry
+      title: jewelry
+    text: Select one of it, which got stolen.  
+
+
+  utter_ask_Mobile:
+  - text: Mention your Mobile name and model number(For eg. Vivo Y55s)  
+
+  utter_welcome:
+  - text: Hello there! Welcome To Maharashtra police chatbot.
+  utter_date_of_birth:
+  - text: What is your date of birth ?
+
+  utter_religion:
+  - text: Mention your Religion
+  utter_Nationality:
+  - text: You Belong to which Nation
+
+forms:
+  complainant_details:
+    required_slots:
+      Help:
+      - type: from_text    
+      name:
+      - type: from_text 
+      father_hub_name:
+      - type: from_text
+      DOB:
+      - type: from_text 
+      Nationality:
+      - type: from_text
+      Contact_no:
+      - type: from_text
+      Occupation:
+      - type: from_text 
+      Religion:
+      - type: from_text
+      Address:
+      - type: from_text
+
+  accused_details:
+    required_slots:
+      Do_u_know_accused:
+      - type: from_text
+      name_accused:
+      - type: from_text
+      address_accused:
+      - type: from_text 
+
+  incident_details:
+    required_slots: 
+      Incident_date:
+      - type: from_text
+      Incident_time:
+      - type: from_text 
+      Incident_ad:
+      - type: from_text 
+
+  mobile_details:
+    required_slots:
+      Mobile_info:
+      - type: from_text
+      
+
+      
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
